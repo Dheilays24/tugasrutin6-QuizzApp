@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Quiz App - Tugas Rutin 6</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="quiz-container">
+    <div class="topbar">
+      <h1>🧠 Interactive Quiz App</h1>
+      <button id="darkModeBtn" class="icon-btn" title="Toggle dark mode">🌙</button>
+    </div>
+
+    <!-- Layar Data Diri -->
+    <div id="startScreen" class="start-screen">
+      <h2>📝 Data Diri Peserta</h2>
+      <p class="start-desc">Isi data kamu sebelum memulai quiz.</p>
+      <label class="form-label" for="playerName">Nama Lengkap</label>
+      <input id="playerName" class="text-input" type="text" placeholder="Contoh: sarah" maxlength="40">
+
+      <label class="form-label" for="playerNim">NIM (opsional)</label>
+      <input id="playerNim" class="text-input" type="text" placeholder="Contoh: 425325****" maxlength="10">
+
+      <button id="startBtn" class="btn-next">Mulai Quiz →</button>
+      <p id="startError" class="start-error hidden">⚠️ Nama wajib diisi dulu ya!</p>
+    </div>
+
+    <!-- Wrapper Quiz -->
+    <div id="quizWrapper" class="hidden">
+      <!-- Progress -->
+      <div class="progress-wrapper">
+        <div id="progress" class="progress-text">Soal 1/5</div>
+        <div class="progress-bar-track">
+          <div id="progressBar" class="progress-bar-fill"></div>
+        </div>
+      </div>
+
+      <div class="quiz-content">
+        <!-- Timer -->
+        <div id="timer" class="timer">⏱️ 1:00</div>
+
+        <!-- Soal (dirender oleh JS) -->
+        <div id="question" class="question"></div>
+
+        <!-- Pilihan jawaban -->
+        <div id="options" class="options-grid"></div>
+
+        <!-- Tombol next -->
+        <button id="nextBtn" class="btn-next hidden">Next →</button>
+      </div>
+    </div>
+
+    <!-- Hasil akhir -->
+    <div id="result" class="result hidden">
+      <h2>🏆 Quiz Selesai!</h2>
+      <p class="player-line">Peserta: <span id="resultName"></span></p>
+      <p class="score-line">Skor: <span id="score"></span></p>
+      <p class="highscore-line">High Score: <span id="highScore"></span></p>
+      <button id="restartBtn" class="btn-restart">🔄 Ulangi Quiz</button>
+
+      <div class="history-section">
+        <h3>📜 Riwayat Percobaan</h3>
+        <ul id="historyList" class="history-list"></ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
